@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module {{NAME}}_tb;
+module example2_tb;
 
     // --------------------
     // Signals
@@ -24,7 +24,7 @@ module {{NAME}}_tb;
     // --------------------
     // DUT instance
     // --------------------
-    {{NAME}} dut (
+    example2 dut (
         // .a(a),
         // .b(b),
         // .y(y)
@@ -35,7 +35,7 @@ module {{NAME}}_tb;
     // --------------------
     initial begin
         $dumpfile("waves/dump.vcd");
-        $dumpvars(0, {{NAME}}_tb);
+        $dumpvars(0, example2_tb);
     end
 
     // --------------------

@@ -17,22 +17,27 @@ RUN apt-get update && apt-get install -y \
     jq \
     && rm -rf /var/lib/apt/lists/*
 
-# ---- Verible ----
-# Install prebuilt Verible binaries
-RUN VERIBLE_VERSION=v0.0-3712-g9a8bb37 && \
-    wget https://github.com/chipsalliance/verible/releases/download/${VERIBLE_VERSION}/verible-${VERIBLE_VERSION}-linux-static-x86_64.tar.gz && \
-    tar -xzf verible-${VERIBLE_VERSION}-linux-static-x86_64.tar.gz && \
-    cp verible-${VERIBLE_VERSION}/bin/* /usr/local/bin/ && \
+# ---- Install Verible (formatter + language server) ----
+RUN set -eux; \
+    VERIBLE_URL=$(wget -qO- https://api.github.com/repos/chipsalliance/verible/releases/latest \
+    | grep browser_download_url \
+    | grep linux-static-x86_64 \
+    | cut -d '"' -f 4); \
+    wget "$VERIBLE_URL" -O verible.tar.gz; \
+    tar -xzf verible.tar.gz; \
+    cp verible-*/bin/* /usr/local/bin/; \
     rm -rf verible*
 
-# Create a non-root user (nice-to-have)
+# ---- Create vscode user ----
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=1000
 
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    && chown -R $USERNAME:$USERNAME /home/$USERNAME
+    && apt-get update \
+    && apt-get install -y sudo \
+    && echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 USER $USERNAME
 WORKDIR /workspace
