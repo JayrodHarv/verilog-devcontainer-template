@@ -1,4 +1,4 @@
-`timescale 1ns/1ps
+`timescale 1ns/1ps // sets the time unit to 1ns and the time precision to 1ps
 
 module full_adder(
     input a,
@@ -7,8 +7,7 @@ module full_adder(
     output sum,
     output cout
 );
-
-    assign sum  = a ^ b ^ cin;
-    assign cout = (a & b) | (b & cin) | (a & cin);
+    assign #2 sum = a ^ b ^ cin;
+    assign #2 cout = (a & b) | (b & cin) | (a & cin);
 
 endmodule

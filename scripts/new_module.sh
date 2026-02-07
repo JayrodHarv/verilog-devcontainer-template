@@ -2,7 +2,7 @@
 set -e
 
 if [ $# -ne 3 ]; then
-  echo "Usage: $0 <module|tb> <name> <project>"
+  echo "Usage: $0 <module|test|tb> <name> <project>"
   exit 1
 fi
 
@@ -19,6 +19,9 @@ if [ "$TYPE" = "module" ]; then
 elif [ "$TYPE" = "tb" ]; then
   DEST="src/$PROJECT/tb"
   TEMPLATE="templates/tb.v.tpl"
+elif [ "$TYPE" = "test" ]; then
+  DEST="src/$PROJECT/test"
+  TEMPLATE="templates/test.v.tpl"
 else
   echo "Unknown type $TYPE"
   exit 1

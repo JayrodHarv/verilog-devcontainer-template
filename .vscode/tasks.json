@@ -26,6 +26,12 @@
             "problemMatcher": []
         },
         {
+            "label": "New Test",
+            "type": "shell",
+            "command": "./scripts/new_module.sh test ${input:modName} ${input:projName}",
+            "problemMatcher": []
+        },
+        {
             "label": "New Testbench",
             "type": "shell",
             "command": "./scripts/new_module.sh tb ${input:modName} ${input:projName}",
