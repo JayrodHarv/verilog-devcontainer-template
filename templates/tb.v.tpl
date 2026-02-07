@@ -1,55 +1,24 @@
-`timescale 1ns/1ps
 
 module {{NAME}}_tb;
 
-    // --------------------
-    // Signals
-    // --------------------
-    reg clk;
-    reg rst;
-
+    // -------------------------
     // DUT signals
-    // reg  a;
-    // reg  b;
-    // wire y;
+    // -------------------------
+    wire <OUTPUTS>;
+    wire <INPUTS>;
 
-    // --------------------
-    // Clock generation
-    // --------------------
-    initial begin
-        clk = 0;
-        forever #5 clk = ~clk;
-    end
-
-    // --------------------
-    // DUT instance
-    // --------------------
-    {{NAME}} dut (
-        // .a(a),
-        // .b(b),
-        // .y(y)
+    // -------------------------
+    // Device Under Test (DUT)
+    // -------------------------
+    <module_name> dut (
+        <PORT_CONNECTIONS>
     );
 
-    // --------------------
-    // Dump waves
-    // --------------------
-    initial begin
-        $dumpfile("waves/dump.vcd");
-        $dumpvars(0, {{NAME}}_tb);
-    end
-
-    // --------------------
-    // Test sequence
-    // --------------------
-    initial begin
-        rst = 1;
-        #20 rst = 0;
-
-        // stimulus here
-
-        #100;
-        $display("TEST COMPLETE");
-        $finish;
-    end
+    // -------------------------
+    // Test / stimulus module
+    // -------------------------
+    <module_name>_test test (
+        <PORT_CONNECTIONS>
+    );
 
 endmodule
