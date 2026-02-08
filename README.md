@@ -11,6 +11,7 @@
   - [Prerequisites](#prerequisites)
   - [Installation Via VS Code GUI](#installation-via-vs-code-gui)
   - [Installation Via Command line](#installation-via-command-line)
+- [Updating Repo](#updating-your-repo-to-get-new-features-or-bug-fixes)
 - [VS Code Tasks](#vs-code-tasks)
   
 
