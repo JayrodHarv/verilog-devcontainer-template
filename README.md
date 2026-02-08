@@ -61,12 +61,23 @@ Before starting, make sure you have:
 
 ### Installation Via VS Code GUI:
 
-##### Step 1: Clone the Repository from VS Code
+#### Step 0: Create a New Project from the Template
+1. Go to the template repository on github: https://github.com/JayrodHarv/verilog-devcontainer-template.git
+2. Click the **Use this Template** button on top right
+3. Choose:
+  * Repository Name
+  * Visibility (Public or Private)
+4. Click **Create repository**
+
+This creates a new repository with no Git history connection to the template.
+
+#### Step 1: Clone the Newly Created Repository from VS Code
 
 1. Open **VS Code**
 2. Press: **ctrl+shift+p**
 3. Type and select **Git: Clone**
-4. Paste the GitHub repository URL: **https://github.com/JayrodHarv/verilog-remote-dev.git**
+3.5. Copy Github repository URL by clicking the **Code** button
+4. Paste the GitHub repository URL: **https://github.com/{Your GitHub Profile}/{Your GitHub Repo Name}.git**
 5. Choose a folder on your computer where the repo should go
 6. When prompted, select: **Open**
 
@@ -74,7 +85,7 @@ VS Code will open the repository after cloning.
 
 ---
 
-##### Step 2: Reopen the Project in the Dev Container
+#### Step 2: Reopen the Project in the Dev Container
 
 Once the repository is open:
 
@@ -84,7 +95,7 @@ If it does, you’ll see a popup in the bottom-right corner: **Reopen in Contain
 
 ---
 
-### Step 3: Wait for the Container to Build
+#### Step 3: Wait for the Container to Build
 
 VS Code will now:
 
@@ -109,6 +120,16 @@ Once finished, VS Code will automatically reload **inside the container**.
 git clone https://github.com/JayrodHarv/verilog-remote-dev.git
 cd your-repo-name
 ```
+
+## Updating Your Repo to Get New Features or Bug Fixes
+
+```bash
+git remote add template https://github.com/<template-owner>/<template-repo>.git
+git fetch template
+git merge template/main
+```
+
+You may need to resolve merge conflicts if you modified environment files.
 
 ## VS Code Tasks
 
