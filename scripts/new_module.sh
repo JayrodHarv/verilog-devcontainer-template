@@ -36,7 +36,7 @@ fi
 
 mkdir -p "$DEST"
 
-sed "s/{{NAME}}/$NAME/g" "$TEMPLATE" > "$DEST/$FILENAME"
+sed "s/{{NAME}}/$NAME/g; s/{{PROJ}}/$PROJECT/g" "$TEMPLATE" > "$DEST/$FILENAME"
 
 echo "$TYPE '$NAME' created in project '$PROJECT'"
 echo "→ $DEST/$FILENAME"

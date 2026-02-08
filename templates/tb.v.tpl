@@ -1,24 +1,14 @@
-
 module {{NAME}}_tb;
 
-    // -------------------------
-    // DUT signals
-    // -------------------------
-    wire <OUTPUTS>;
-    wire <INPUTS>;
+    wire y;
+    wire a, b, c;
 
-    // -------------------------
-    // Device Under Test (DUT)
-    // -------------------------
-    <module_name> dut (
-        <PORT_CONNECTIONS>
+    {{NAME}} mod (
+        a, b, c, y
     );
 
-    // -------------------------
-    // Test / stimulus module
-    // -------------------------
-    <module_name>_test test (
-        <PORT_CONNECTIONS>
+    {{NAME}}_test test (
+        a, b, c, y
     );
 
 endmodule

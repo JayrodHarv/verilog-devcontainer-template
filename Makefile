@@ -52,7 +52,7 @@ sim: $(SIM_OUT)
 	$(VVP) $(SIM_OUT)
 
 $(SIM_OUT): $(RTL_SRCS) $(TB_SRCS) $(TEST_SRCS)
-	@mkdir -p $(BUILD) $(LOG_DIR)
+	@mkdir -p $(BUILD) $(LOG_DIR) $(WAVES)
 	@echo "Compiling: $(PROJ)"
 	$(IVERILOG) $(IV_FLAGS) -o $(SIM_OUT) $(RTL_SRCS) $(TB_SRCS) $(TEST_SRCS)
 

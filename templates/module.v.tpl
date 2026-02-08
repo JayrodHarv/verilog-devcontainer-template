@@ -1,10 +1,12 @@
 `timescale 1ns/1ps
 
 module {{NAME}} (
-    
+    input a,
+    input b,
+    input c,
+    output y
 );
 
-    // reg / wire declarations here
-
+    assign y = a | c;
 
 endmodule
