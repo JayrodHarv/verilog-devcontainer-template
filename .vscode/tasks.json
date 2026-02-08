@@ -40,7 +40,7 @@
         {
             "label": "Build & Simulate",
             "type": "shell",
-            "command": "make sim",
+            "command": "make all",
             "options": {
                 "cwd": "${workspaceFolder}/src/${input:projName}"
             },
