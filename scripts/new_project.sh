@@ -30,6 +30,7 @@ sed "s/{{NAME}}/$NAME/g" templates/tb.v.tpl > $ROOT/tb/${NAME}_tb.v
 sed "s/{{NAME}}/$NAME/g" templates/test.v.tpl > $ROOT/test/${NAME}_test.v
 
 # Copy Makefile template
-cp templates/Makefile.tpl $ROOT/Makefile
+# Do not create per-project Makefiles; root Makefile manages projects centrally.
+# If a project needs overrides, create `project.mk` inside the project directory.
 
 echo "Project '$NAME' created at $ROOT"

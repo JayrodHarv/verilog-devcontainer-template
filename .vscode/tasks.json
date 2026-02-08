@@ -40,19 +40,13 @@
         {
             "label": "Build & Simulate",
             "type": "shell",
-            "command": "make all",
-            "options": {
-                "cwd": "${workspaceFolder}/src/${input:projName}"
-            },
+            "command": "make PROJ=${input:projName} all",
             "problemMatcher": []
         },
         {
             "label": "Waveform Viewer",
             "type": "shell",
-            "command": "make waves",
-            "options": {
-                "cwd": "${workspaceFolder}/src/${input:projName}"
-            },
+            "command": "make PROJ=${input:projName} waves",
             "problemMatcher": []
         }
     ]
