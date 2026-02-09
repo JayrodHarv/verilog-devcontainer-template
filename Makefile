@@ -78,4 +78,4 @@ new-proj:
 	  echo "Usage: make new-proj NAME=<project>"; \
 	  exit 1; \
 	fi
-	./scripts/new_project.sh $(NAME)
+	bash ./scripts/new_project.sh $(NAME)
