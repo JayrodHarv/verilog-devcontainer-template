@@ -13,7 +13,6 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     gtkwave \
     iverilog \
-    verilator \
     jq \
     && rm -rf /var/lib/apt/lists/*
 
