@@ -12,10 +12,10 @@ module example_test(
     reg [3:0] i; // 4-bit register to iterate through all combinations of a, b, c
 
     initial begin
-        $dumpfile("waves/dump.vcd");
+        $dumpfile("src/example/waves/dump.vcd");
         $dumpvars(0, example_test);
 
-        file_descriptor = $fopen("logs/example_test.log", "w"); // opens a log file to write test logs to
+        file_descriptor = $fopen("src/example/logs/example_test.log", "w"); // opens a log file to write test logs to
 
         // create for loop to test all combinations of a, b, c
         for (i = 0; i < 8; i = i + 1) begin
